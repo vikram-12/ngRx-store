@@ -1,0 +1,34 @@
+<div class="bodyType">
+  <div class="headerBody">
+    <div class="todoTitle">Todo List</div>
+    <button (click)="addWorkSelected()" class="addButton">Add work +</button>
+  </div>
+  <div class="list">
+    <div class="listBox">
+      <div
+        *ngFor="let todo of todo$ | async; let i = index"
+        class="listBody"
+        class="cardBox"
+      >
+        <div class="card">
+          <div class="serialNo">{{ i + 1 }}</div>
+          <div class="title">{{ todo.title }}</div>
+          <div class="status">{{ todo.completed ? "Done" : "Pending" }}</div>
+        </div>
+        <div class="actions">
+          <div (click)="update(todo)" class="update">Update task</div>
+          <div (click)="deleteTask(todo)" class="delete">Delete task</div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="this.isAddWorkSelected" class="addWork">
+      <app-add-task (closeAddTask)="closeAdd($event)"></app-add-task>
+    </div>
+    <div *ngIf="this.isUpdateWorkSelected" class="addWork">
+      <app-update-task
+        (closeAddTask)="closeUpdateTask($event)"
+        [todoBeforeUpdate]="this.updateTodo"
+      ></app-update-task>
+    </div>
+  </div>
+</div>

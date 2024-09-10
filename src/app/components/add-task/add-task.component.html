@@ -1,0 +1,14 @@
+<div class="addBox">
+  <div>Add Task</div>
+  <div class="fieldBox">
+    <textarea
+      [(ngModel)]="newTodoTitle"
+      placeholder="New Todo"
+      class="inputField"
+      maxlength="100"
+    ></textarea>
+  </div>
+  <div class="buttonDiv">
+    <button (click)="addNewTodo()" class="addButton">Add</button>
+  </div>
+</div>

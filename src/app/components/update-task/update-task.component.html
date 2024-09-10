@@ -1,0 +1,18 @@
+<div class="addBox">
+  <div>Update Task</div>
+  <div class="fieldBox">
+    <textarea
+      [(ngModel)]="updateTodoTitle"
+      placeholder="New Todo"
+      class="inputField"
+      maxlength="100"
+    ></textarea>
+  </div>
+  <div class="completeCheck">
+    <input type="checkbox" [(ngModel)]="checkCompleted" />
+    <label>Completed</label>
+  </div>
+  <div class="buttonDiv">
+    <button (click)="updateTodo()" class="addButton">Update</button>
+  </div>
+</div>
